@@ -23,8 +23,8 @@ for eq in response.json()['features']:
     out.append([EqTitle, float(distFromCityKM), latLonEq])
 
 df = pd.DataFrame(out)
-df = df.drop_duplicates([1]) #removing duplicated LAT LONG
-dfSorted = df.sort_values(by=(1), ascending=True) #Sorting by Ditance from City
+dfSorted = df.sort_values(by=(1), ascending=True) #Sorting by Distance from City in question
+df = df.head(20).drop_duplicates([1]) #removing duplicated LAT LONG for the first 20 ocurrences after sorting (better performance)
 dfSorted.columns = ['Earthquake Name', 'Distance in KM', 'Location Lat/Long'] #inserting header
 
 print(dfSorted.head(10).to_string(index=False))
