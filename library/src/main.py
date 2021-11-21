@@ -1,6 +1,5 @@
 import requests
 from geopy import distance
-import numpy as np
 import pandas as pd
 
 
